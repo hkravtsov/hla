@@ -6,7 +6,7 @@ the [RFC-2119](https://datatracker.ietf.org/doc/html/rfc2119)
 ## 1. The high-level task description
 
 A **social network** where the customers can publish their posts which can be reacted by other customers. The *
-*reactions** are provided in the form of emoji.
+*reactions* are provided in the form of emoji.
 
 A **feed** is a set of the posts ordered by date and collected by the criteria:
 
