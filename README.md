@@ -1,7 +1,7 @@
 # High-load Architecture Course Project
 
 The modal verbs in the document are used in accordance with
-the [RFC-2119](https://datatracker.ietf.org/doc/html/rfc2119)
+ [RFC-2119](https://datatracker.ietf.org/doc/html/rfc2119)
 
 ## 1. The high-level task description
 
