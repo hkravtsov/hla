@@ -5,8 +5,7 @@ the [RFC-2119](https://datatracker.ietf.org/doc/html/rfc2119)
 
 ## 1. The high-level task description
 
-A **social network** where the customers can publish their posts which can be reacted by other customers. The *
-*reactions* are provided in the form of emoji.
+A **social network** where the customers can publish their posts which can be reacted by other customers. The **reactions** are provided in the form of emoji.
 
 A **feed** is a set of the posts ordered by date and collected by the criteria:
 
@@ -86,7 +85,7 @@ Average annual downtime - till five minutes.
 
 ##### 2.2.1.2. Fault-tolerance
 
-For mitigating faults the system MUST work in accordance with Active-Active approach where Main and DR MUST be places in
+For mitigating faults the system MUST work in accordance with Active-Active approach where Main and DR MUST be placed in
 different datacenters.
 
 ##### 2.2.1.2. Security
