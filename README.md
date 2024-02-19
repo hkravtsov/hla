@@ -123,6 +123,7 @@ Progressive scalability for databases, inverted indexes, caches and file storage
 | Post size limit                                              | 200 chars                                                                                                                       |  
 | Max number of reaction (estimate)                            | 10 millions                                                                                                                     | 
 | Post loading page                                            | 10 posts on demand                                                                                                              |
+| Posts page loading timing (round trip in millis)             | 300                                                                                                                             |
 
 **Note**: size of the metadata **MUST** be calculated based on the data structures design.
 
