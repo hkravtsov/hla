@@ -85,7 +85,7 @@ Average annual downtime - till five minutes.
 
 ##### 2.2.1.2. Fault-tolerance
 
-For mitigating faults the system MUST work in accordance with Active-Active approach where Main and DR MUST be placed in
+For mitigating faults the system **MUST** work in accordance with Active-Active approach where Main and DR MUST be placed in
 different datacenters.
 
 ##### 2.2.1.2. Security
@@ -122,7 +122,7 @@ Progressive scalability for databases, inverted indexes, caches and file storage
 | Max number of reaction (estimate)                            | 10 millions                                                                                                                     | 
 | Post loading page                                            | 10 posts on demand                                                                                                              |
 
-**Note**: size of the metadata MUST be calculated based on the data structures design.
+**Note**: size of the metadata **MUST** be calculated based on the data structures design.
 
 #### 2.2.3. Maintainability
 
@@ -136,12 +136,12 @@ Level 4: External Support.
 
 #### 2.2.3.2. Proactive maintainability
 
-Artificial intelligence (AI) MUST be used for proactive maintainability: contextual recommendations MUST be provided to
+Artificial intelligence (AI) **MUST** be used for proactive maintainability: contextual recommendations MUST be provided to
 a customer based on the customer behaviour model.
 
 #### 2.2.4. Documenting of the architectural solution
 
-The architectural design MUST be composed in accordance with the recommendations of the TOGAF Standard (10th edition).
+The architectural design **MUST** be composed in accordance with the recommendations of the TOGAF Standard (10th edition).
 
 
 
