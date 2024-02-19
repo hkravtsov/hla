@@ -72,7 +72,7 @@ Any member of the chat can get the administrative privileges granted by the char
 
 A public chatting room is creating by any user became the chat administrator.
 During chat creation the admin selects one from two possible modes: limited chat or unlimited chat.
-If the administrator selects limited hat then a condition of visibility **MUST** be specified.
+If the administrator selects the limited chat mode then a condition of visibility **MUST** be specified.
 
 ### 2.2. Non-functional requirements
 
