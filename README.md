@@ -78,7 +78,7 @@ If the administrator selects limited hat then a condition of visibility **MUST**
 
 #### 2.2.1. Reliability
 
-The percentage of time that a computer system should work without failing - 99.999 percent.
+The percentage of time that a computer system **MUST** work without failing - 99.999 percent.
 Average annual downtime - till five minutes.
 
 ##### 2.2.1.1. Common requirements
@@ -100,7 +100,7 @@ The system MUST be GDPR-compliant.
 
 ###### 2.2.1.2.3. Brand-safety
 
-A brand safety mechanism MUST be proposed during the architectural design phase.
+A brand safety mechanism **MUST** be proposed during the architectural design phase.
 This mechanism **MUST** restrict the posts related to sex, politics, religions etc.
 
 #### 2.2.2. Scalability
