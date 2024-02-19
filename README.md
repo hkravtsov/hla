@@ -1,11 +1,12 @@
 # High-load Architecture Course Project
 
 The modal verbs in the document are used in accordance with
- [RFC-2119](https://datatracker.ietf.org/doc/html/rfc2119)
+[RFC-2119](https://datatracker.ietf.org/doc/html/rfc2119)
 
 ## 1. The high-level task description
 
-A **social network** where the customers can publish their posts which can be reacted by other customers. The **reactions** are provided in the form of emoji.
+A **social network** where the customers can publish their posts which can be reacted by other customers. The *
+*reactions** are provided in the form of emoji.
 
 A **feed** is a set of the posts ordered by date and collected by the criteria:
 
@@ -85,7 +86,8 @@ Average annual downtime - till five minutes.
 
 ##### 2.2.1.2. Fault-tolerance
 
-For mitigating faults the system **MUST** work in accordance with Active-Active approach where Main and DR MUST be placed in
+For mitigating faults the system **MUST** work in accordance with Active-Active approach where Main and DR MUST be
+placed in
 different datacenters.
 
 ##### 2.2.1.2. Security
@@ -128,20 +130,24 @@ Progressive scalability for databases, inverted indexes, caches and file storage
 
 #### 2.2.3.1. Customer supporting
 
-Level 0: Self-Support.
-Level 1: Basic Support.
-Level 2: Troubleshooting.
-Level 3: Expert Support.
-Level 4: External Support.
+| Level | Nature of the support | SLA (in hours) |
+|-------|-----------------------|----------------|
+| 0     | Self-Support          | -              |
+| 1     | Basic Support         | 1              |
+| 2     | Troubleshooting       | 8              |
+| 3     | Expert Support        | 72             |
+| 4     | External Support      | 120            |
 
 #### 2.2.3.2. Proactive maintainability
 
-Artificial intelligence (AI) **MUST** be used for proactive maintainability: contextual recommendations MUST be provided to
+Artificial intelligence (AI) **MUST** be used for proactive maintainability: contextual recommendations MUST be provided
+to
 a customer based on the customer behaviour model.
 
 #### 2.2.4. Documenting of the architectural solution
 
-The architectural design **MUST** be composed in accordance with the recommendations of the TOGAF Standard (10th edition).
+The architectural design **MUST** be composed in accordance with the recommendations of the TOGAF Standard (10th
+edition).
 
 
 
