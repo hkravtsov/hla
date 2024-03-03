@@ -221,12 +221,12 @@ Roughly estimates:
 
 ## 4.2. Active posts + metadata
 
-| Parameter              | Value         | Comment                                                                                                                                                                                                                                                                                                                       |
-|------------------------|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Nature                 | Dynamic       | Every post is unique, updatable and must be indexed for full-text search                                                                                                                                                                                                                                                      |
-| Format                 | JSON          | A small message size (up to 200 characters) eliminates the need for compression, but JSON can be optimized by using acronyms instead of full field names.  <b> For example, for 10 fields with single-character names, the efficiency of the message format with an effective text of 200 characters will be greater than 95% |
-| Storage                | ElasticSearch | Sharded by time-zone (grouped time-zones) and post language. Native integration between Elasticsearch and Apache Spark, in the form of an RDD (Resilient Distributed Dataset) - an excellent opportunity for big data analytics                                                                                               |
-| Estimated size (in TB) | 5.6 TB        | Max capacity per shard ~ 2 billions of records. Theoretically, every shard will store 1.8TB approximately. With 30% capacity reservation, expected amount of shards: ~ 6 shards                                                                                                                                               |
+| Parameter              | Value         | Comment                                                                                                                                                                                                                                                                                                                   |
+|------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Nature                 | Dynamic       | Every post is unique, updatable and must be indexed for full-text search                                                                                                                                                                                                                                                  |
+| Format                 | JSON          | A small message size (up to 200 characters) eliminates the need for compression, but JSON can be optimized by using acronyms instead of full field names.  For example, for 10 fields with single-character names, the efficiency of the message format with an effective text of 200 characters will be greater than 95% |
+| Storage                | ElasticSearch | Sharded by time-zone (grouped time-zones) and post language. Native integration between Elasticsearch and Apache Spark, in the form of an RDD (Resilient Distributed Dataset) - an excellent opportunity for big data analytics                                                                                           |
+| Estimated size (in TB) | 5.6 TB        | Max capacity per shard ~ 2 billions of records. Theoretically, every shard will store 1.8TB approximately. With 30% capacity reservation, expected amount of shards: ~ 6 shards                                                                                                                                           |
 
 ## 4.3. Archived posts
 
@@ -239,10 +239,10 @@ Roughly estimates:
 
 ## 4.3. Analytics (statistics) with history
 
-| Parameter              | Value   | Comment                                                                                                                                                                          |
-|------------------------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Nature                 | Static  | Collected statistics per date                                                                                                                                                    |
-| Format                 | JSON    | In fact, BSON                                                                                                                                                                    |
-| Storage                | MongoDB | 3 node in replica set with secondary preferred reading mode (high availability, low consistence), <b> 20K rps for reading, excellent integration with Apache Spark for analytics |
-| Estimated size (in MB) | 200 MB  |                                                                                                                                                                                  |
+| Parameter              | Value   | Comment                                                                                                                                                                       |
+|------------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Nature                 | Static  | Collected statistics per date                                                                                                                                                 |
+| Format                 | JSON    | In fact, BSON                                                                                                                                                                 |
+| Storage                | MongoDB | 3 node in replica set with secondary preferred reading mode (high availability, low consistence),  20K rps for reading, excellent integration with Apache Spark for analytics |
+| Estimated size (in MB) | 200 MB  |                                                                                                                                                                               |
 
