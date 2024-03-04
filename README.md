@@ -228,6 +228,8 @@ Roughly estimates:
 | Storage                | ElasticSearch | Sharded by time-zone (grouped time-zones) and post language. Native integration between Elasticsearch and Apache Spark, in the form of an RDD (Resilient Distributed Dataset) - an excellent opportunity for big data analytics                                                                                           |
 | Estimated size (in TB) | 5.6 TB        | Max capacity per shard ~ 2 billions of records. Theoretically, every shard will store 1.8TB approximately. With 30% capacity reservation, expected amount of shards: ~ 6 shards                                                                                                                                           |
 
+Note: 3 instances of ElasticSearch with location in west (USA), east (Asia) and central europe (France/Germany) regions.
+
 ## 4.3. Archived posts
 
 | Parameter              | Value     | Comment                                                                            |
