@@ -1,46 +1,46 @@
-<mxfile host="app.diagrams.net" modified="2024-03-11T19:23:06.010Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 OPR/98.0.0.0" etag="XMVru5zJBMyqn_Oz3kgN" version="24.0.4" type="github">
+<mxfile host="app.diagrams.net" modified="2024-03-11T19:29:26.336Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 OPR/98.0.0.0" etag="wCJ_Em3qbS0xa4aVYwD4" version="24.0.4" type="github">
   <diagram name="Page-1" id="UZfB8cd6rYVi6m1sYfKR">
     <mxGraphModel dx="1344" dy="779" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="bTO7-g2a4qk360R4mZp_-2" value="Load balancer" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.azure.load_balancer_generic" vertex="1" parent="1">
-          <mxGeometry x="560.5" y="137" width="37" height="50" as="geometry" />
+          <mxGeometry x="537.5" y="137" width="37" height="50" as="geometry" />
         </mxCell>
         <mxCell id="bTO7-g2a4qk360R4mZp_-24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="bTO7-g2a4qk360R4mZp_-3" target="bTO7-g2a4qk360R4mZp_-2">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="bTO7-g2a4qk360R4mZp_-3" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="459" y="47" width="240" height="60" as="geometry" />
+          <mxGeometry x="436" y="47" width="240" height="60" as="geometry" />
         </mxCell>
         <mxCell id="bTO7-g2a4qk360R4mZp_-4" value="" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.azure.laptop" vertex="1" parent="1">
-          <mxGeometry x="479" y="62" width="50" height="30" as="geometry" />
+          <mxGeometry x="456" y="62" width="50" height="30" as="geometry" />
         </mxCell>
         <mxCell id="bTO7-g2a4qk360R4mZp_-6" value="" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.mscae.enterprise.workstation_client" vertex="1" parent="1">
-          <mxGeometry x="569" y="52" width="50" height="50" as="geometry" />
+          <mxGeometry x="546" y="52" width="50" height="50" as="geometry" />
         </mxCell>
         <mxCell id="bTO7-g2a4qk360R4mZp_-8" value="" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.azure.mobile" vertex="1" parent="1">
-          <mxGeometry x="654" y="52" width="35" height="50" as="geometry" />
+          <mxGeometry x="631" y="52" width="35" height="50" as="geometry" />
         </mxCell>
         <mxCell id="bTO7-g2a4qk360R4mZp_-9" value="" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/DNS.svg;" vertex="1" parent="1">
-          <mxGeometry x="319" y="52" width="50" height="50" as="geometry" />
+          <mxGeometry x="296" y="52" width="50" height="50" as="geometry" />
         </mxCell>
         <mxCell id="bTO7-g2a4qk360R4mZp_-10" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=1.08;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="bTO7-g2a4qk360R4mZp_-9" target="bTO7-g2a4qk360R4mZp_-3">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="609" y="257" as="sourcePoint" />
-            <mxPoint x="659" y="207" as="targetPoint" />
+            <mxPoint x="586" y="257" as="sourcePoint" />
+            <mxPoint x="636" y="207" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="bTO7-g2a4qk360R4mZp_-11" value="Clients/Users" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="534" y="15" width="90" height="30" as="geometry" />
+          <mxGeometry x="511" y="15" width="90" height="30" as="geometry" />
         </mxCell>
         <mxCell id="bTO7-g2a4qk360R4mZp_-13" value="CDN" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.azure.cloud" vertex="1" parent="1">
-          <mxGeometry x="809" y="58" width="50" height="32" as="geometry" />
+          <mxGeometry x="786" y="58" width="50" height="32" as="geometry" />
         </mxCell>
         <mxCell id="bTO7-g2a4qk360R4mZp_-14" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=-0.1;entryY=0.594;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="bTO7-g2a4qk360R4mZp_-3" target="bTO7-g2a4qk360R4mZp_-13">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="729" y="79" as="sourcePoint" />
-            <mxPoint x="785" y="77.5" as="targetPoint" />
+            <mxPoint x="706" y="79" as="sourcePoint" />
+            <mxPoint x="762" y="77.5" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="bTO7-g2a4qk360R4mZp_-23" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
@@ -222,7 +222,7 @@
           <mxGeometry x="390" y="468.5" width="50" height="42" as="geometry" />
         </mxCell>
         <mxCell id="bTO7-g2a4qk360R4mZp_-73" value="Monitoring Application" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.mscae.enterprise.monitor_running_apps" vertex="1" parent="1">
-          <mxGeometry x="543" y="274" width="50" height="39" as="geometry" />
+          <mxGeometry x="519" y="274" width="50" height="39" as="geometry" />
         </mxCell>
         <mxCell id="bTO7-g2a4qk360R4mZp_-76" value="Archive&lt;br&gt;&amp;nbsp;manager" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.mscae.enterprise.database_synchronization" vertex="1" parent="1">
           <mxGeometry x="397" y="627" width="39" height="50" as="geometry" />
