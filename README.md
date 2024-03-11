@@ -248,3 +248,6 @@ Note: 3 instances of ElasticSearch with location in west (USA), east (Asia) and 
 | Storage                | MongoDB | 3 node in replica set with secondary preferred reading mode (high availability, low consistence),  20K rps for reading, excellent integration with Apache Spark for analytics |
 | Estimated size (in MB) | 200 MB  |                                                                                                                                                                               |
 
+#5. Architectural design
+
+#5.1. 
