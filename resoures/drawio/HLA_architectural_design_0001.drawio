@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-03-11T18:57:06.741Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 OPR/98.0.0.0" etag="dnbf2ZdpzAq7yigGYgQ5" version="24.0.4" type="github">
+<mxfile host="app.diagrams.net" modified="2024-03-11T18:58:17.588Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 OPR/98.0.0.0" etag="ZC4Bv6v3OeROOeod9UC9" version="24.0.4" type="github">
   <diagram name="Page-1" id="UZfB8cd6rYVi6m1sYfKR">
     <mxGraphModel dx="1344" dy="779" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
@@ -44,7 +44,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="bTO7-g2a4qk360R4mZp_-23" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="48.5" y="210" width="481.5" height="530" as="geometry" />
+          <mxGeometry x="48.5" y="210" width="451.5" height="530" as="geometry" />
         </mxCell>
         <mxCell id="bTO7-g2a4qk360R4mZp_-25" value="Firewall" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.mscae.enterprise.firewall" vertex="1" parent="1">
           <mxGeometry x="191" y="230" width="50" height="44" as="geometry" />
@@ -219,13 +219,13 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="bTO7-g2a4qk360R4mZp_-72" value="Health check &lt;br&gt;monitoring" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.azure.health_monitoring" vertex="1" parent="1">
-          <mxGeometry x="450" y="468.5" width="50" height="42" as="geometry" />
+          <mxGeometry x="423" y="468.5" width="50" height="42" as="geometry" />
         </mxCell>
         <mxCell id="bTO7-g2a4qk360R4mZp_-73" value="Monitoring Application" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.mscae.enterprise.monitor_running_apps" vertex="1" parent="1">
           <mxGeometry x="583" y="270" width="50" height="39" as="geometry" />
         </mxCell>
-        <mxCell id="bTO7-g2a4qk360R4mZp_-76" value="Archive manager" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.mscae.enterprise.database_synchronization" vertex="1" parent="1">
-          <mxGeometry x="449" y="627" width="39" height="50" as="geometry" />
+        <mxCell id="bTO7-g2a4qk360R4mZp_-76" value="Archive&lt;br&gt;&amp;nbsp;manager" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.mscae.enterprise.database_synchronization" vertex="1" parent="1">
+          <mxGeometry x="430" y="627" width="39" height="50" as="geometry" />
         </mxCell>
         <mxCell id="bTO7-g2a4qk360R4mZp_-77" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="bTO7-g2a4qk360R4mZp_-60" target="bTO7-g2a4qk360R4mZp_-76">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
