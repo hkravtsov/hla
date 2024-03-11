@@ -251,4 +251,4 @@ Note: 3 instances of ElasticSearch with location in west (USA), east (Asia) and 
 #5. Architectural design
 
 #5.1. First draft 
-[![Architectural design](/resoures/drawio/HLA_architectural_design_0001.drawio.png)]
+![Architectural design](/resoures/drawio/HLA_architectural_design_0001.drawio.png)
