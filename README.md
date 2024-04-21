@@ -221,6 +221,32 @@ Roughly estimates:
 
 ## 4.2. Active posts + metadata
 
+# 4.2.1. The requirements
+
+# 4.2.1.1. Replication
+
+Replicate chat message data across multiple servers or data centers to ensure data availability and redundancy.
+In the context of the project bi-directional replication seems like the most effective solution because applications can write to the local db within each datacenter, and read across multiple dbs for a global view of all information.
+
+# 4.2.1.2. Partitioning
+The primary use of partitioning is scalability. 
+Distributed search, aggregations (including map-reduce) is highly desired features of the application.
+
+# 4.2.1.3. Transactions
+No needed.
+
+# 4.2.1.4. Integrity
+Data integrity exists to ensure the data remains accurate and uncompromised throughout this process.
+There are no legal or financial consequences for the system owner.
+
+# 4.2.1.5. Consensus
+Consensus algorithms are needed to guarantee a total order of messages, ensuring that all nodes process messages in the same sequence.
+
+# 4.2.1.6. PACELC
+Independently of network partition, consistency must be preferred.
+
+# 4.2.2. Architectural proposal
+
 | Parameter              | Value         | Comment                                                                                                                                                                                                                                                                                                                   |
 |------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Nature                 | Dynamic       | Every post is unique, updatable and must be indexed for full-text search                                                                                                                                                                                                                                                  |
@@ -250,5 +276,8 @@ Note: 3 instances of ElasticSearch with location in west (USA), east (Asia) and 
 
 # 5. Architectural design
 
-# 5.1. First draft 
+# 5.1. First draft
+
 ![Architectural design](/resoures/drawio/HLA_architectural_design_0001.drawio.png)
+
+
