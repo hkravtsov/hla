@@ -243,7 +243,18 @@ There are no legal or financial consequences for the system owner.
 Consensus algorithms are needed to guarantee a total order of messages, ensuring that all nodes process messages in the same sequence.
 
 # 4.2.1.6. PACELC
-Independently of network partition, consistency must be preferred.
+Trade-off between consistency and latency is preferred.
+For the system we determine the number of nodes that take in synchronous reads and writes using the formula:
+
+R + W > N, R + W ≤ N
+
+R: synchronous READs
+
+W: synchronous WRITEs
+
+N: number of Replica Nodes
+
+If the equation is R+W>N then consistency is maintained but is still subject to latency overhead. If it is R+W ≤ N latency is reduced but it is possible to retrieve responses from asynchronous updates which could lead to inconsistencies of the data. With this bound in place the system will either sacrifice a little more consistency or a little more latency for the other and is really trying to achieve a best effort of both properties.
 
 # 4.2.2. Architectural proposal
 
