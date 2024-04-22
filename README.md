@@ -304,30 +304,54 @@ Note: 3 instances of ElasticSearch with location in west (USA), east (Asia) and 
 
 # 5.2. Monitoring, metrics and alerting
 
-This part of the document defines the requirementS and the best practices in monitoring, metrics and alerting of User Auth Module. This module is responsible for the typical business operation related to user registration, authentiphication
+This part of the document defines the requirementS and the best practices in monitoring, metrics and alerting of User
+Auth Module. This module is responsible for the typical business operation related to user registration,
+authentiphication
 
 # 5.2.1. Performance monitoring
-This involves tracking metrics like response times, request rates, resource utilization, and error rates to ensure optimal performance.
+
+This involves tracking metrics like response times, request rates, resource utilization, and error rates to ensure
+optimal performance.
+
+The metrics:
+
+| Metric               | Description                                                                                                                                | Unit   | Percentile         |
+|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|--------|--------------------|
+| Response time        | This metric measures the time taken for the app to respond to a user request. It helps in evaluating the app's speed and efficiency.       | ms     | 50%, 75%, 95%, 99% |
+| Request throughput   | The number of requests the app can handle per unit of time, indicating its capacity and scalability.                                       | rps    |                    |
+| Error rate           | Monitoring the percentage of unsuccessful requests or errors occurring within the app provides crucial insights into its reliability.      | %      |                    |
+| Apdex score          | A metric that combines response time and error rate to evaluate user satisfaction with the app's performance.                              | %/rps  |                    |
+| Round Trip Time      | The time taken for a request to travel from the client to the server and back.                                                             | ms     | 50%, 75%, 95%, 99% |
+| Latency              | The time used by server for for a request processing.                                                                                      | ms     | 50%, 75%, 95%, 99% |
+| Resource utilization | Tracking CPU, memory, disk usage, queues lengths, and other resources helps ensure efficient resource allocation and prevents bottlenecks. | %, mpq |                    |
 
 # 5.2.2. Health and liveness checks (probes)
+
 Regularly checking the app's status and components to detect any potential issues or failures.
 
 # 5.2.3. Alerting
+
 Setting up alerts for specific thresholds or conditions to notify when performance degrades or errors occur.
 
 # 5.2.4. Logging
+
 Collecting and analyzing logs to track app behavior, diagnose issues, and troubleshoot problems.
 
 # 5.2.5. Security monitoring
-Monitoring for suspicious activities, potential intrusions, and vulnerabilities to protect the app from security threats.
+
+Monitoring for suspicious activities, potential intrusions, and vulnerabilities to protect the app from security
+threats.
 
 # 5.2.6. User experience monitoring
+
 Tracking user interactions, user journeys, and feedback to improve the overall user experience.
 
 # 5.2.7. Scalability monitoring
+
 Monitoring app performance under varying loads to ensure it can scale effectively.
 
 # 5.2.8. Third-party service monitoring
+
 Monitoring external services or dependencies that the app relies on to prevent disruptions.
 
 
