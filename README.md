@@ -226,23 +226,31 @@ Roughly estimates:
 # 4.2.1.1. Replication
 
 Replicate chat message data across multiple servers or data centers to ensure data availability and redundancy.
-In the context of the project bi-directional replication seems like the most effective solution because applications can write to the local db within each datacenter, and read across multiple dbs for a global view of all information.
+In the context of the project, the bi-directional replication seems like the most effective solution because
+applications can write to the local db within each datacenter, and read across multiple dbs for a global view of all
+information.
 
 # 4.2.1.2. Partitioning
-The primary use of partitioning is scalability. 
+
+The primary use of partitioning is scalability.
 Distributed search, aggregations (including map-reduce) is highly desired features of the application.
 
 # 4.2.1.3. Transactions
+
 No needed.
 
 # 4.2.1.4. Integrity
+
 Data integrity exists to ensure the data remains accurate and uncompromised throughout this process.
 There are no legal or financial consequences for the system owner.
 
 # 4.2.1.5. Consensus
-Consensus algorithms are needed to guarantee a total order of messages, ensuring that all nodes process messages in the same sequence.
+
+Consensus algorithms are needed to guarantee a total order of messages, ensuring that all nodes process messages in the
+same sequence.
 
 # 4.2.1.6. PACELC
+
 Trade-off between consistency and latency is preferred.
 For the system we determine the number of nodes that take in synchronous reads and writes using the formula:
 
@@ -254,7 +262,10 @@ W: synchronous WRITEs
 
 N: number of Replica Nodes
 
-If the equation is R+W>N then consistency is maintained but is still subject to latency overhead. If it is R+W ≤ N latency is reduced but it is possible to retrieve responses from asynchronous updates which could lead to inconsistencies of the data. With this bound in place the system will either sacrifice a little more consistency or a little more latency for the other and is really trying to achieve a best effort of both properties.
+If the equation is R+W>N then consistency is maintained but is still subject to latency overhead. If it is R+W ≤ N
+latency is reduced but it is possible to retrieve responses from asynchronous updates which could lead to
+inconsistencies of the data. With this bound in place the system will either sacrifice a little more consistency or a
+little more latency for the other and is really trying to achieve a best effort of both properties.
 
 # 4.2.2. Architectural proposal
 
@@ -287,8 +298,41 @@ Note: 3 instances of ElasticSearch with location in west (USA), east (Asia) and 
 
 # 5. Architectural design
 
-# 5.1. First draft
+# 5.1. High Level Diagram
 
 ![Architectural design](/resoures/drawio/HLA_architectural_design_0001.drawio.png)
+
+# 5.2. Monitoring, metrics and alerting
+
+This part of the document defines the requirementS and the best practices in monitoring, metrics and alerting of User Auth Module. This module is responsible for the typical business operation related to user registration, authentiphication
+
+# 5.2.1. Performance monitoring
+This involves tracking metrics like response times, request rates, resource utilization, and error rates to ensure optimal performance.
+
+# 5.2.2. Health and liveness checks (probes)
+Regularly checking the app's status and components to detect any potential issues or failures.
+
+# 5.2.3. Alerting
+Setting up alerts for specific thresholds or conditions to notify when performance degrades or errors occur.
+
+# 5.2.4. Logging
+Collecting and analyzing logs to track app behavior, diagnose issues, and troubleshoot problems.
+
+# 5.2.5. Security monitoring
+Monitoring for suspicious activities, potential intrusions, and vulnerabilities to protect the app from security threats.
+
+# 5.2.6. User experience monitoring
+Tracking user interactions, user journeys, and feedback to improve the overall user experience.
+
+# 5.2.7. Scalability monitoring
+Monitoring app performance under varying loads to ensure it can scale effectively.
+
+# 5.2.8. Third-party service monitoring
+Monitoring external services or dependencies that the app relies on to prevent disruptions.
+
+
+
+
+
 
 
