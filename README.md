@@ -420,6 +420,19 @@ The metrics are the same as for:
 - performance monitoring and
 - health and liveness probes.
 
+# 5.2.9. Business metrics
+
+| Metric                     | Description                                                                                                                              | Unit            |
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
+| Retention Rate             | Retention rate refers to the percentage of customers who continue paying for a product over a given timeframe                            | %               |
+| Churn Rate                 | The number of customers or subscribers that leave a provider in a given time period (1-Retention Rate).                                  | %               |
+| Daily Active Users (DAU)   | The number of unique users who engage with a product or a website within the last day                                                    | person          |
+| Monthly Active Users (MAU) | The number of unique users who engage with a product or a website within the last month                                                  | person          |
+| Daily Sessions per DAU     | Dividing the total number of sessions in a day by the number of daily active users (DAU)                                                 | sessions/person |
+| Stickiness                 | How often users are returning to an app: is measured by dividing the number of daily active users by the number of monthly active users. | %               |
+| Productivity               | Is measured by dividing the number of daily posts by the number of active users per day                                                  | posts/person    |
+| Engagement rate            | is a metric used to assess the average number of interactions your social media content receives per follower                            | posts/person    |
+
 
 
 
