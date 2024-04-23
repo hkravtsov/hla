@@ -320,7 +320,7 @@ The metrics:
 | Response time        | This metric measures the time taken for the app to respond to a user request. It helps in evaluating the app's speed and efficiency.       | ms     | 50%, 75%, 95%, 99% |
 | Request throughput   | The number of requests the app can handle per unit of time, indicating its capacity and scalability.                                       | rps    |                    |
 | Error rate           | Monitoring the percentage of unsuccessful requests or errors occurring within the app provides crucial insights into its reliability.      | %      |                    |
-| Apdex score          | A metric that combines response time and error rate to evaluate user satisfaction with the app's performance.                              | %/rps  |                    |
+| Apdex score          | A metric that combines response time and error rate to evaluate user satisfaction with the app's performance.                              | rps    |                    |
 | Round Trip Time      | The time taken for a request to travel from the client to the server and back.                                                             | ms     | 50%, 75%, 95%, 99% |
 | Latency              | The time used by server for for a request processing.                                                                                      | ms     | 50%, 75%, 95%, 99% |
 | Resource utilization | Tracking CPU, memory, disk usage, queues lengths, and other resources helps ensure efficient resource allocation and prevents bottlenecks. | %, mpq |                    |
@@ -328,6 +328,18 @@ The metrics:
 # 5.2.2. Health and liveness checks (probes)
 
 Regularly checking the app's status and components to detect any potential issues or failures.
+The requirements:
+
+| Requirement class                 | Description                                                                                                                   |
+|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
+| Frequency                         | Regularly schedule health checks to monitor the app's status and components at predefined intervals.                          |
+| Timeouts                          | Set appropriate timeouts for health checks to prevent them from causing delays or bottlenecks in the app.                     |
+| Thresholds                        | Define thresholds for health check results to determine when an app component is considered unhealthy or  unresponsive.       |
+| Customization                     | Allow for customization of health checks to include specific checks for different app components or services.                 |
+| Logging and reporting             | Log the results of health checks and provide detailed reports to track app performance and status over time.                  |
+| Alerting                          | Configure alerts to notify administrators or stakeholders when an app component fails a health check or becomes unresponsive. |
+| Integration with monitoring tools | Integrate health and liveness checks with existing monitoring tools or systems to streamline monitoring processes.            |
+| Automatic recovery                | Implement automatic recovery processes based on health check results to ensure prompt resolution of issues.                   |
 
 # 5.2.3. Alerting
 
