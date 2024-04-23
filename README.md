@@ -345,26 +345,80 @@ The requirements:
 
 Setting up alerts for specific thresholds or conditions to notify when performance degrades or errors occur.
 
+What to alert on:
+
+- Alerts should be actionable and relevant to users.
+- Some examples of things to alert on are availability, latency, and integrity/durability.
+- Alerts are the “start” of an action or an investigation; they may only represent a small portion of what you monitor.
+
+When to alert on things:
+
+- Alerts can be more or less urgent depending on how long the issue has been going on and how severe the impact is.
+  Consider that impact changes over time.
+- You can use alerts to give people enough time to act before there are consequences for issues such as quota
+  consumption.
+
+Who to alert, and how:
+
+- Only notify people you intend to act in response, and trust them to inform more people if needed.
+- Page the person on-call if the situation requires an immediate response.
+- Consider not paging the person on-call and creating a ticket if the issue is not urgent.
+
 # 5.2.4. Logging
 
 Collecting and analyzing logs to track app behavior, diagnose issues, and troubleshoot problems.
+
+- Know What to Log
+- Know When to Use Each Log Level
+- Use English Language and Friendly Log Messages
+- Have a Consistent Structure Across All Logs
+- Understand Metrics
+- Make Each Log Message Unique
+- Always Provide Context
+- Reporting Alerts and Exception Handling
+- Write Log Parsers and Proactively Monitor Logs
 
 # 5.2.5. Security monitoring
 
 Monitoring for suspicious activities, potential intrusions, and vulnerabilities to protect the app from security
 threats.
 
+Please, follow [NIST SP 800-171](https://csrc.nist.gov/pubs/sp/800/171/r2/upd1/final) recommendation in security
+monitoring.
+
 # 5.2.6. User experience monitoring
 
 Tracking user interactions, user journeys, and feedback to improve the overall user experience.
+
+Please, use the following sorts of monitoring:
+
+| Monitoring sort                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Synthetic Monitoring                   | The synthetic monitoring approach uses scripts to emulate the interaction between users and applications. Periodically running these scripts helps identify issues before they affect end user experience. Synthetic monitoring provides performance baselines and valuable info on availability, especially for applications with inconsistent usage patterns. This technique is also helpful to evaluating third-party services and APIs.                                                                                                                                                                                                                                                                                                                                                                                                     |
+| Packet-based End-User Experience       | Packet-based end user experience monitoring is another way to view the response time for web pages from an end-user perspective. Using network packets, you can passively monitor the time it takes the browser to load the entire web page. You can also monitor the time it takes to load the individual objects that make up the web page or even measure the load time for a group of web pages that work as a single web transaction. Packet-based, end-user experience monitoring does not provide a complete picture of end-user experience as it does not measure device performance. However, packet capture is useful when monitoring consumer web applications that cannot otherwise be easily instrumented.                                                                                                                         |
+| JavaScript Injection                   | Injecting JavaScript code directly into a web application and provides IT Operations with information about what is happening at a user’s web browser. This technique can also call third-party services and APIs, delivering better insights into a user’s actual experience. JavaScript injection gets closer to complete end user experience monitoring, at least for web apps. However, it requires either direct control of the application or proxy servers for externally hosted applications. While this works well for web and hybrid mobile applications, it becomes increasingly complicated and expensive, and does not cover other types of applications at all. Code injection also does not collect any details on the conditions of the user’s device nor the many network segments and cloud services between user and server. |
+| Physical and Virtual Device Monitoring | Device monitoring is a popular approach for measuring operating system health and behavior. This includes metrics such as CPU and memory utilization, storage performance, network response at the device, and crashed or not-responding processes. These are important factors, but do not provide a complete picture of end user experience. One of the big challenges with device monitoring is relating operating systems metrics to user complaints. When a user complains about delays in retrieving a patient record, saving changes, or opening a document, or just the screen taking too long to load, it can take considerable time and effort to determine exactly where the problem is occurring.                                                                                                                                   |
 
 # 5.2.7. Scalability monitoring
 
 Monitoring app performance under varying loads to ensure it can scale effectively.
 
+Scalability metrics:
+
+| Metric class        | Description                                                                                                                                                                                                                                                                                                                                             |
+|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Performance Metrics | These metrics measure the effect of increased workload on the responsiveness, throughput, and resource utilization of the application. Metrics such as response time, requests per second, and CPU or memory usage help developers evaluate the performance of their applications under varying load conditions.                                        |
+| Elasticity Metrics  | These metrics address the system's ability to seamlessly and quickly deploy new instances, respond to changing demands, and release resources when they are no longer required. Metrics such as instance startup time, time to scale out/in, auto-scaling accuracy, and resource utilization ratios can be used to evaluate the elasticity of a system. |
+| Resilience Metrics  | These metrics assess the robustness and fault tolerance of a system, ensuring that it can continue to operate effectively and recover gracefully from failures. Metrics such as mean time between failures (MTBF), mean time to recovery (MTTR), and availability can help developers evaluate their application's resilience under scaled conditions.  |
+
 # 5.2.8. Third-party service monitoring
 
 Monitoring external services or dependencies that the app relies on to prevent disruptions.
+
+The metrics are the same as for:
+
+- performance monitoring and
+- health and liveness probes.
 
 
 
