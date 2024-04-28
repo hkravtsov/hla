@@ -1,0 +1,64 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor User
+
+box "Credit System" #LightBlue
+participant "Front Office" as CFO
+control "Credit Order Saga" as COS
+participant "Historical\n Records Bank" as CHB
+participant "Personal\n Credit Calculator" as PCC
+participant "Credit Approving\n or\n Rejecting Module" as CARM
+end box
+
+== Choreography ==
+User -> CFO++: place \na credit request
+CFO -> CFO++--: create an order \nin status "Pending"
+CFO -> CHB++: send command \nto check credit history \n(userId, sum, term)
+CHB -> CHB: create an order\n to check the user's\n credit history
+alt credit history is bad
+CHB -> CFO: reject
+else credit history is good
+CHB -> CFO--: approve (credit score, ARR, period etc.)
+CFO -> PCC++: calculate \npersonal offering
+PCC -> PCC++--: calculate \npersonal offering
+PCC -> CARM++: personal offering
+CARM -> CARM++--: evaluate \npersonal \noffering
+CARM -> PCC--: approve \nor reject
+PCC -> CFO--: approve \nor reject
+end
+alt order rejected
+CFO -> CFO++--: change status "Rejected"
+else order approved
+CFO -> CFO++--: set status "Approved"
+end
+CFO -> User--: approve or request
+
+==  Orchestration==
+User -> CFO++: place \na credit request
+par
+CFO -> COS++: create a saga
+else
+CFO-> CFO++--: create an order \nin status "Pending"
+end
+par
+COS -> CHB: send command \nto check credit history\n (userId, sum, term)
+CHB -> CHB: create an order \nto check the \nuser's credit history
+CHB -> COS: response
+else
+COS -> PCC++: prepare the personal offering
+PCC -> PCC++--: preparing the personal offering
+PCC->COS--: personal offering draft
+end
+COS-> COS++--: making decision \nregarding the request
+COS -> CFO--: approve \nor reject
+alt order rejected
+CFO -> CFO++--: change status "Rejected"
+else order approved
+CFO -> CFO++--: set status "Approved"
+end
+CFO -> User--: approve \nor request
+
+@enduml
