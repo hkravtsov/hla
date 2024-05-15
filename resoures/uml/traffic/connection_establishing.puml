@@ -1,0 +1,116 @@
+@startuml
+
+autonumber
+
+title "2.Connection establishing and user liveness notification"
+
+actor User as u
+
+control "Load\nBalancer" as elb
+
+box "Data Center (Location X)" #LightBlue
+control "Load\nBalancer" as lb
+participant "Front End\nCoordinator" as fec
+participant "Auth\nService" as auth
+participant "User\nCorrelation\nService" as ucs
+database "Database" as db
+queue "Message\nBroker" as mb
+participant "Message\nBroker\nCoordinator" as mbc
+end box
+
+queue ESB as esb
+
+== 2.1.Connection establishing==
+
+u -> elb++: open ws\nconnection
+activate u
+elb -> elb++--: select DC\nbased on\nuser geolocation
+elb -> lb++: open ws\nconnection
+lb ->fec++: open ws\nconnection
+fec -> auth ++: check\ncredentials
+auth -> db++: check\ncredentials
+db -> auth--: ack
+auth -> fec--: ack
+fec-> mbc++: create topic
+mbc -> mb++: create topic
+note over mb
+Topic name is UserID
+end note
+mb -> mbc--: ack
+mbc -> esb++: user\nliveness\nmessage
+note right
+User liveness message:
+UserId + RegionID
+end note
+note over esb
+fanout/broadcast exchange
+end note
+esb -> mbc--: ack
+mbc -> fec--: ack
+fec -> mb++: subscribe topic
+mb -> fec--: ack
+par register connection
+fec -> fec++--: register\nconnection
+note right
+Map: UserID -> WebSocket Connection
+Note: configured Idle timeout
+for all user connections
+end note
+else register activity
+fec -> db++: register activity
+db -> fec--: ack
+end
+fec -> lb--:ack
+lb -> elb--: ack
+elb -> u--: ack
+deactivate u
+
+== 2.2. User liveness notification (established connection)==
+loop ping
+u -> fec: ping (UserId + UID)
+activate fec
+fec -> fec++--: recalculate timeslot\nthe connection\ncan remain\ninactive
+fec -> mb: ping
+deactivate fec
+activate mb
+mb -> mbc: ping
+deactivate mb
+activate mbc
+mbc -> esb++: liveness\nmessage
+note over esb
+activate mb
+Message UserId+RegionId
+end note
+esb -> mbc--: ack
+deactivate mbc
+end
+
+loop pong
+mbc -> esb++: ask message
+activate mbc
+esb -> mbc--: liveness\nmessage
+mbc -> ucs++: get linked\nusers
+ucs -> db++: get active\nlinked users
+db -> ucs--: linked\nactive users
+ucs -> mbc--: userIDs
+loop for every UserID
+mbc -> mb++: publish\nto UserID
+mb -> mbc--: ack
+end
+deactivate mbc
+end
+
+loop liveness notification
+fec -> mb++: ask message
+activate fec
+mb -> fec--: liveness\nmessage
+alt message is pong
+fec ->o u: pong
+else another user liveness message
+fec ->o u:user liveness message
+deactivate fec
+end
+end
+
+
+@enduml

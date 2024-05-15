@@ -1,7 +1,7 @@
 # High-load Architecture Course Project
 
 The modal verbs in the document are used in accordance with
-[RFC-2119](https://datatracker.ietf.org/doc/html/rfc2119)
+[RFC-2119](https://datatracker.ietf.org/doc/html/rfc2119).
 
 ## 1. The high-level task description
 
@@ -298,17 +298,50 @@ Note: 3 instances of ElasticSearch with location in west (USA), east (Asia) and 
 
 # 5. Architectural design
 
-## 5.1. High Level Diagram
+## 5.1. High Level Design
 
 ![Architectural design](/resoures/drawio/HLA_architectural_design_0001.drawio.png)
 
-## 5.2. Monitoring, metrics and alerting
+Multi-DC solutions play a critical role in ensuring **high availability**, **fault tolerance**, and **scalability** for
+modern applications and services, enabling businesses to meet the demands of an increasingly connected and data-driven
+world.
+
+| Key aspects                          | Description                                                                                                                                                                                                                                                                                                                                             |
+|--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Redundancy                           | Redundancy is achieved by replicating critical infrastructure components, such as servers, storage, networking equipment, and power sources, across multiple data centers. This redundancy ensures that if one data center fails or becomes unavailable, the workload can be seamlessly transferred to another data center without disrupting services. |
+| Load Balancing                       | Load balancing distributes incoming network traffic across multiple servers or data centers to ensure optimal resource utilization, maximize throughput, minimize response time, and avoid overload on any single server or data center. It can be implemented using hardware or software-based solutions.                                              |
+| Data Replication and Synchronization | Data replication involves copying data across multiple data centers in real-time or near-real-time to ensure data availability and consistency. Synchronization mechanisms are employed to keep data consistent across different data centers, often utilizing techniques like synchronous or asynchronous replication.                                 |
+| Global Traffic Management            | Global Traffic Management solutions direct user requests to the nearest or most suitable data center based on factors such as geographical location, network latency, server load, or other customized criteria. This ensures optimal performance and user experience.                                                                                  |
+| Disaster Recovery (DR)               | Multi-DC solutions often include disaster recovery plans and procedures to mitigate the impact of catastrophic events such as natural disasters, cyber-attacks, or hardware failures. These plans typically involve automated failover processes to switch traffic to backup data centers in case of a disaster.                                        |
+| Consistency Models                   | Multi-DC architectures may implement different consistency models depending on the specific requirements of the application. These models include strong consistency, eventual consistency, and causal consistency, each offering trade-offs between data consistency, availability, and partition tolerance.                                           |
+
+## 5.2. Middle-level Design
+
+### 5.2.1. Global Traffic Management
+
+#### 5.2.1.1. The problem statement:
+
+- user connects to **the nearest available datacenter (DC)** via WebSocket;
+- virtual chat (v-chat) can move between the datacenters depends on the locations of the participants to **minimize the
+  average round trip time for all participants** of the particular v-chat.
+- changes in the v-chat must be delivered to all active participants with **high level of guarantee**.
+
+#### 5.2.1.2. Components
+
+| Component                    | Responsibility                 | Comment                       |
+|------------------------------|--------------------------------|-------------------------------|
+| Load Balancer                | Traffic balancing  between DCs | Based on the user geolocation |
+| FrontEnd Coordinator Service | Managing WS connections        |                               |
+| Authentication Service       | User authentication            | Auth Service                  |
+|                              |                                |
+
+## 5.3. Monitoring, metrics and alerting
 
 This part of the document defines the requirementS and the best practices in monitoring, metrics and alerting of User
 Auth Module. This module is responsible for the typical business operation related to user registration,
-authentiphication
+authentithication.
 
-### 5.2.1. Performance monitoring
+### 5.3.1. Performance monitoring
 
 This involves tracking metrics like response times, request rates, resource utilization, and error rates to ensure
 optimal performance.
@@ -325,7 +358,7 @@ The metrics:
 | Latency              | The time used by server for for a request processing.                                                                                      | ms     | 50%, 75%, 95%, 99% |
 | Resource utilization | Tracking CPU, memory, disk usage, queues lengths, and other resources helps ensure efficient resource allocation and prevents bottlenecks. | %, mpq |                    |
 
-### 5.2.2. Health and liveness checks (probes)
+### 5.3.2. Health and liveness checks (probes)
 
 Regularly checking the app's status and components to detect any potential issues or failures.
 The requirements:
@@ -341,7 +374,7 @@ The requirements:
 | Integration with monitoring tools | Integrate health and liveness checks with existing monitoring tools or systems to streamline monitoring processes.            |
 | Automatic recovery                | Implement automatic recovery processes based on health check results to ensure prompt resolution of issues.                   |
 
-### 5.2.3. Alerting
+### 5.3.3. Alerting
 
 Setting up alerts for specific thresholds or conditions to notify when performance degrades or errors occur.
 
@@ -364,7 +397,7 @@ Who to alert, and how:
 - Page the person on-call if the situation requires an immediate response.
 - Consider not paging the person on-call and creating a ticket if the issue is not urgent.
 
-### 5.2.4. Logging
+### 5.3.4. Logging
 
 Collecting and analyzing logs to track app behavior, diagnose issues, and troubleshoot problems.
 
@@ -378,15 +411,15 @@ Collecting and analyzing logs to track app behavior, diagnose issues, and troubl
 - Reporting Alerts and Exception Handling
 - Write Log Parsers and Proactively Monitor Logs
 
-### 5.2.5. Security monitoring
+### 5.3.5. Security monitoring
 
 Monitoring for suspicious activities, potential intrusions, and vulnerabilities to protect the app from security
 threats.
 
-Please, follow [NIST SP 800-171](https://csrc.nist.gov/pubs/sp/800/171/r2/upd1/final) recommendation in security
+Please, follow [NIST SP 800-171](https://csrc.nist.gov/pubs/sp/800/171/r2/upd1/final) recommendations in security
 monitoring.
 
-### 5.2.6. User experience monitoring
+### 5.3.6. User experience monitoring
 
 Tracking user interactions, user journeys, and feedback to improve the overall user experience.
 
@@ -399,7 +432,7 @@ Please, use the following sorts of monitoring:
 | JavaScript Injection                   | Injecting JavaScript code directly into a web application and provides IT Operations with information about what is happening at a user’s web browser. This technique can also call third-party services and APIs, delivering better insights into a user’s actual experience. JavaScript injection gets closer to complete end user experience monitoring, at least for web apps. However, it requires either direct control of the application or proxy servers for externally hosted applications. While this works well for web and hybrid mobile applications, it becomes increasingly complicated and expensive, and does not cover other types of applications at all. Code injection also does not collect any details on the conditions of the user’s device nor the many network segments and cloud services between user and server. |
 | Physical and Virtual Device Monitoring | Device monitoring is a popular approach for measuring operating system health and behavior. This includes metrics such as CPU and memory utilization, storage performance, network response at the device, and crashed or not-responding processes. These are important factors, but do not provide a complete picture of end user experience. One of the big challenges with device monitoring is relating operating systems metrics to user complaints. When a user complains about delays in retrieving a patient record, saving changes, or opening a document, or just the screen taking too long to load, it can take considerable time and effort to determine exactly where the problem is occurring.                                                                                                                                   |
 
-### 5.2.7. Scalability monitoring
+### 5.3.7. Scalability monitoring
 
 Monitoring app performance under varying loads to ensure it can scale effectively.
 
@@ -411,7 +444,7 @@ Scalability metrics:
 | Elasticity Metrics  | These metrics address the system's ability to seamlessly and quickly deploy new instances, respond to changing demands, and release resources when they are no longer required. Metrics such as instance startup time, time to scale out/in, auto-scaling accuracy, and resource utilization ratios can be used to evaluate the elasticity of a system. |
 | Resilience Metrics  | These metrics assess the robustness and fault tolerance of a system, ensuring that it can continue to operate effectively and recover gracefully from failures. Metrics such as mean time between failures (MTBF), mean time to recovery (MTTR), and availability can help developers evaluate their application's resilience under scaled conditions.  |
 
-### 5.2.8. Third-party service monitoring
+### 5.3.8. Third-party service monitoring
 
 Monitoring external services or dependencies that the app relies on to prevent disruptions.
 
@@ -420,7 +453,7 @@ The metrics are the same as for:
 - performance monitoring and
 - health and liveness probes.
 
-### 5.2.9. Business metrics
+### 5.3.9. Business metrics
 
 | Metric                     | Description                                                                                                                              | Unit            |
 |----------------------------|------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
