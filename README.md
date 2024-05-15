@@ -333,7 +333,11 @@ world.
 | Load Balancer                | Traffic balancing  between DCs | Based on the user geolocation |
 | FrontEnd Coordinator Service | Managing WS connections        |                               |
 | Authentication Service       | User authentication            | Auth Service                  |
-|                              |                                |
+|                              |                                |                               |
+
+#### 5.2.1.3. UMLs
+
+![Connection establishing](/resoures/uml/traffic/connection_establishing.png)
 
 ## 5.3. Monitoring, metrics and alerting
 
