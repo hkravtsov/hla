@@ -16,6 +16,18 @@ activate mbc
 esb -> mbc--: ack
 deactivate mbc
 
+==Liveness notification==
+loop configured timeout
+mbc -> esb++: RegionID
+note over esb
+fanout/broadcast exchange
+end note
+activate mbc
+esb -> mbc--: ack
+deactivate mbc
+end
+
+
 ==Consume==
 loop
 esb -> mbc++: DC liveness message (RegionID)
