@@ -328,16 +328,20 @@ world.
 
 #### 5.2.1.2. Components
 
-| Component                    | Responsibility                 | Comment                       |
-|------------------------------|--------------------------------|-------------------------------|
-| Load Balancer                | Traffic balancing  between DCs | Based on the user geolocation |
-| FrontEnd Coordinator Service | Managing WS connections        |                               |
-| Authentication Service       | User authentication            | Auth Service                  |
-|                              |                                |                               |
+| Component                    | Responsibility                    | Comment                                        |
+|------------------------------|-----------------------------------|------------------------------------------------|
+| Load Balancer                | Traffic balancing  between DCs    | Based on the user geolocation                  |
+| FrontEnd Coordinator Service | Managing WS connections           |                                                |
+| Authentication Service       | User authentication               | Auth Service                                   |
+| User Correlation Service     | Mapping of connected/linked users | Traffic optimization for liveness messages     |
+| DC Message Broker            |                                   | Async delivering of the messages inside the DC |
+| Enterprise Service Bus (ESB) |                                   | Inter-DC message broker                        |
 
 #### 5.2.1.3. UMLs
 
-![Connection establishing](/resoures/uml/traffic/connection_establishing.png)
+![1. DC discovering](/resoures/uml/traffic/dc_discovering.png)
+
+![2. Connection establishing](/resoures/uml/traffic/connection_establishing.png)
 
 ## 5.3. Monitoring, metrics and alerting
 

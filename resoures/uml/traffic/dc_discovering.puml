@@ -1,0 +1,27 @@
+@startuml
+autonumber
+
+title "1. DC discovering"
+
+box "Data Center (Location X)" #LightBlue
+participant "Message\nBroker\nCoordinator" as mbc
+end box
+
+queue ESB as esb
+
+==Subscribe==
+
+mbc -> esb++: subscribe to DC liveness messages
+activate mbc
+esb -> mbc--: ack
+deactivate mbc
+
+==Consume==
+loop
+esb -> mbc++: DC liveness message (RegionID)
+activate esb
+mbc -> mbc++--: register region with Idle
+mbc -> esb--: ack
+deactivate esb
+end
+@enduml
