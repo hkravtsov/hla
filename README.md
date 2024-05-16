@@ -319,6 +319,8 @@ world.
 
 ### 5.2.1. Global Traffic Management
 
+The solution is based on the CQRS pattern.
+
 #### 5.2.1.1. The problem statement:
 
 - user connects to **the nearest available datacenter (DC)** via WebSocket;
@@ -335,13 +337,15 @@ world.
 | Authentication Service       | User authentication               | Auth Service                                   |
 | User Correlation Service     | Mapping of connected/linked users | Traffic optimization for liveness messages     |
 | DC Message Broker            |                                   | Async delivering of the messages inside the DC |
-| Enterprise Service Bus (ESB) |                                   | Inter-DC message broker                        |
+| Enterprise Service Bus (ESB) |                                   | Inter-DC message broker (priority queue)       |
 
 #### 5.2.1.3. UMLs
 
 ![1. DC discovering](/resoures/uml/traffic/dc_discovering.png)
 
 ![2. Connection establishing](/resoures/uml/traffic/connection_establishing.png)
+
+![2. Chat joining and chat moving](/resoures/uml/traffic/v-chat-moving.png)
 
 ## 5.3. Monitoring, metrics and alerting
 
