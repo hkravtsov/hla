@@ -330,16 +330,27 @@ The solution is based on the CQRS pattern.
 
 #### 5.2.1.2. Components
 
-| Component                    | Responsibility                    | Comment                                        |
-|------------------------------|-----------------------------------|------------------------------------------------|
-| Load Balancer                | Traffic balancing  between DCs    | Based on the user geolocation                  |
-| FrontEnd Coordinator Service | Managing WS connections           |                                                |
-| Authentication Service       | User authentication               | Auth Service                                   |
-| User Correlation Service     | Mapping of connected/linked users | Traffic optimization for liveness messages     |
-| DC Message Broker            |                                   | Async delivering of the messages inside the DC |
-| Enterprise Service Bus (ESB) |                                   | Inter-DC message broker (priority queue)       |
+| Component                    | Responsibility                                                                                                                       | Comment                                                         |
+|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
+| Load Balancer                | Traffic balancing  between DCs                                                                                                       | Based on the user geolocation                                   |
+| FrontEnd Coordinator Service | Managing WS connections                                                                                                              |                                                                 |
+| Authentication Service       | User authentication                                                                                                                  | Auth Service                                                    |
+| User Correlation Service     | Mapping of connected/linked users                                                                                                    | Traffic optimization for liveness messages                      |
+| DC Message Broker            |                                                                                                                                      | Async delivering of the messages inside the DC (priority queue) |
+| Enterprise Service Bus (ESB) |                                                                                                                                      | Inter-DC message broker (priority queue)                        |
+| Database                     | 1. User Credentials (single leader with the shards in the DCS) <br> 2. Chats and messages (single leader with shards in the same DC) |                                                                 |          
 
-#### 5.2.1.3. UMLs
+#### 5.2.1.3. CQRS
+
+| Command                    | Priority | Comment |
+|----------------------------|----------|---------|
+| User liveness              | Medium   | 5/10    |
+| Chat creation              | Medium   | 5/10    |
+| Chat moving                | Extreme  | 10/10   |
+| Chat message               | High     | 8/10    |
+| Chat message (replication) | Medium   | 5/10    |
+
+#### 5.2.1.4. UMLs
 
 ![1. DC discovering](/resoures/uml/traffic/dc_discovering.png)
 
