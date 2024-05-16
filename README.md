@@ -63,13 +63,13 @@ A user is able to start/initiate a conversation based on a level of privacy:
     - unlimited - any user can join the conversation.
 
 There are two kind of roles: chat administrator and chat member.
-Administrators can drop the messages into the conversation, chart members can react on the posted messages only.
+Administrators can drop the messages into the conversation, chat members can react on the posted messages only.
 
 ##### 2.1.2.1. Private chatting room
 
 Private chatting room is created by users. A user creates a private chatting room is the chat administrator.
 Invited users are chat members and can react on the post in the chat.
-Any member of the chat can get the administrative privileges granted by the chart creator.
+Any member of the chat can get the administrative privileges granted by the chat creator.
 
 ##### 2.1.2.2. Public chatting room
 
@@ -226,7 +226,7 @@ Roughly estimates:
 ##### 4.2.1.1. Replication
 
 Replicate chat message data across multiple servers or data centers to ensure data availability and redundancy.
-In the context of the project, the bi-directional replication seems like the most effective solution because
+In the context of the project, the bidirectional replication seems like the most effective solution because
 applications can write to the local db within each datacenter, and read across multiple dbs for a global view of all
 information.
 
@@ -263,9 +263,9 @@ W: synchronous WRITEs
 N: number of Replica Nodes
 
 If the equation is R+W>N then consistency is maintained but is still subject to latency overhead. If it is R+W ≤ N
-latency is reduced but it is possible to retrieve responses from asynchronous updates which could lead to
+latency is reduced, but it is possible to retrieve responses from asynchronous updates which could lead to
 inconsistencies of the data. With this bound in place the system will either sacrifice a little more consistency or a
-little more latency for the other and is really trying to achieve a best effort of both properties.
+little more latency for the other and is really trying to achieve the best effort of both properties.
 
 ### 4.2.2. Architectural proposal
 
@@ -361,7 +361,7 @@ Priority queues usage allow to reach out the high level of **linearizability** a
 
 This part of the document defines the requirementS and the best practices in monitoring, metrics and alerting of User
 Auth Module. This module is responsible for the typical business operation related to user registration,
-authentithication.
+authentication.
 
 ### 5.3.1. Performance monitoring
 
