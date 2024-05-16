@@ -1,0 +1,167 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+title "3.V-chat moving"
+
+actor User1 as u1
+actor User2 as u2
+
+control "Load\nBalancer" as elb
+
+box "Data Center (Location 1)" #LightBlue
+control "Load\nBalancer" as lb1
+participant "Front End\nCoordinator" as fec1
+participant "V-chat\nService" as vcs1
+database "Database" as db1
+queue "Message\nBroker" as mb1
+participant "Message\nBroker\nCoordinator" as mbc1
+end box
+
+queue ESB as esb
+
+box "Data Center (Location 2)" #LightGreen
+
+control "Load\nBalancer" as lb2
+participant "Front End\nCoordinator" as fec2
+participant "V-chat\nService" as vcs2
+database "Database" as db2
+queue "Message\nBroker" as mb2
+participant "Message\nBroker\nCoordinator" as mbc2
+end box
+
+==3.1. User 1 auth==
+u1 -> elb++: ws
+activate u1
+elb -> lb1++: ws
+lb1 -> fec1++: ws
+note over fec1
+User 1 authentication
+end note
+fec1 -> lb1--: ack
+lb1 -> elb--: ack
+elb -> u1--: ack
+deactivate u1
+
+
+==3.2. User 2 auth==
+
+u2 -> elb++: ws
+activate u2
+elb -> lb2++: ws
+lb2 -> fec2++: ws
+note over fec2
+User 2 authentication
+end note
+fec2 -> lb2--: ack
+lb2 -> elb--: ack
+elb -> u2--: ack
+deactivate u2
+
+
+== 3.3. Create/Launch V-chat (sync between DCs)==
+u1 -> fec1++: start chat
+fec1 -> vcs1++: start v-chat
+vcs1-> db1++: create v-chat record\n+initiator
+db1 -> vcs1--: ack
+vcs1 -> mbc1++: chat init  RegionID + ChartID
+mbc1 -> mb1++: create topic
+mb1 -> mbc1--: ack
+mbc1 -> esb++: chat liveness\nmessage
+note over esb
+fanout/broadcast exchange
+end note
+esb -> mbc1--: ack
+mbc1 -> vcs1--:ack
+vcs1->fec1--: ack
+fec1 -> u1--: ack
+
+loop dbs sync
+mbc2 -> esb++: consume message
+activate mbc2
+esb -> mbc2--: message (chart doc)
+mbc2 -> vcs2: chat doc
+deactivate mbc2
+activate vcs2
+vcs2 -> db2++: upsert chat doc
+db2 -> vcs2--: ack
+deactivate vcs2
+end
+
+
+== 3.4.New chat member joining==
+u2-> fec2++: search chats
+activate u2
+fec2 -> db2++: search chats
+db2 -> fec2--: found chats
+fec2 -> u2--: found chats
+u2->u2++--: select chat
+note right
+Every chart record contains the servicing DC
+end note
+u2-> fec2++: join chat by\n(ChartID + RegionID) + \n(UserId+RegionId)
+
+fec2 -> vcs2++: open chat
+vcs2 -> mbc2++: join char message
+mbc2 -> esb++: by RegionId of the chat
+esb -> mbc2--: ack
+mbc2 -> vcs2--: ack
+vcs2 -> fec2--: ack
+fec2 -> u2--: ack
+deactivate u2
+
+loop
+mbc1 -> esb++: consume\nmessages
+activate mbc1
+esb -> mbc1--:  join chat by\n(ChartID + RegionID) + \n(UserId+RegionId)
+mbc1 -> vcs1: join chat
+deactivate mbc1
+activate vcs1
+vcs1 -> db1++: add user to the chat
+db1 -> vcs1--: ack
+vcs1 -> vcs1++--: recalculate chat DC
+
+alt moving the chat to another DC
+vcs1 -> vcs1++--: recalculate chat DC
+vcs1 -> db1++: update servicing DC
+db1 -> vcs1--: ack
+note left
+all changes not marked
+as replication will be
+forwarded to
+the calculated DC
+end note
+vcs1 -> mbc1++: chat moving command\nwith the chart vector time
+mbc1 -> esb++: chat moving\ncommand
+note over esb
+High priority command
+end note
+esb -> mbc1--: ack
+mbc1 -> vcs1--:ack
+deactivate vcs1
+
+mbc2 -> esb++: consume message
+activate mbc2
+esb -> mbc2--: moving command
+mbc2 -> vcs2: moving command
+deactivate mbc2
+activate vcs2
+vcs2 -> db2++: get the last vector moment
+db2 -> vcs2--: the moment
+alt discrepancy presents
+vcs2 -> vcs1++: ask diff
+vcs1 -> vcs2--: diff
+vcs2 -> db2++: add diff
+db2 -> vcs2--: ack
+end
+vcs2 ->o vcs2++--: start process\nthe chart messages\n with snapshoting \nto HDFS
+deactivate vcs2
+end
+
+
+end
+
+
+
+@enduml
