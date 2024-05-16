@@ -78,7 +78,6 @@ deactivate mb
 activate mbc
 mbc -> esb++: liveness\nmessage
 note over esb
-activate mb
 Message UserId+RegionId
 end note
 esb -> mbc--: ack
