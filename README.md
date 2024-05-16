@@ -317,8 +317,8 @@ Multi-DC solutions play a critical role in ensuring **high availability**, **fau
 
 ### 5.2.1. Global Traffic Management
 
-The solution is based on the CQRS pattern. 
-Priority queues usage allow to reach out the high level of **linearizability** at the level of the particular v-chat. 
+The solution is based on the CQRS pattern.
+Priority queues usage allow to reach out the high level of **linearizability** at the level of the particular v-chat.
 
 #### 5.2.1.1. The problem statement:
 
@@ -341,13 +341,14 @@ Priority queues usage allow to reach out the high level of **linearizability** a
 
 #### 5.2.1.3. CQRS (the selected commands)
 
-| Command                    | Priority | Weight |
-|----------------------------|----------|--------|
-| User liveness              | Medium   | 5/10   |
-| Chat creation              | Medium   | 5/10   |
-| Chat moving                | Extreme  | 10/10  |
-| Chat message               | High     | 8/10   |
-| Chat message (replication) | Medium   | 5/10   |
+| Command                     | Priority | Weight |
+|-----------------------------|----------|--------|
+| User liveness               | Medium   | 5/10   |
+| Chat creation               | Medium   | 5/10   |
+| Chat moving                 | Extreme  | 10/10  |
+| Chat message                | High     | 8/10   |
+| Chat message (replication)  | Medium   | 5/10   |
+| Delta request (replication) | Extreme  | 10/10  |
 
 #### 5.2.1.4. UMLs
 
