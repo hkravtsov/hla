@@ -336,7 +336,7 @@ Priority queues usage allow to reach out the high level of **linearizability** a
 | Authentication Service       | User authentication                                                                                                                  | Auth Service                                                    |
 | User Correlation Service     | Mapping of connected/linked users                                                                                                    | Traffic optimization for liveness messages                      |
 | DC Message Broker            |                                                                                                                                      | Async delivering of the messages inside the DC (priority queue) |
-| Enterprise Service Bus (ESB) |                                                                                                                                      | Inter-DC message broker (priority queue)                        |
+| Enterprise Service Bus (ESB) | DC Discovery, DC Sync Bus                                                                                                            | Inter-DC message broker (priority queue)                        |
 | Database                     | 1. User Credentials (single leader with the shards in the DCS) <br> 2. Chats and messages (single leader with shards in the same DC) |                                                                 |          
 
 #### 5.2.1.3. CQRS (the selected commands)
