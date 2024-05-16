@@ -302,9 +302,7 @@ Note: 3 instances of ElasticSearch with location in west (USA), east (Asia) and 
 
 ![Architectural design](/resoures/drawio/HLA_architectural_design_0001.drawio.png)
 
-Multi-DC solutions play a critical role in ensuring **high availability**, **fault tolerance**, and **scalability** for
-modern applications and services, enabling businesses to meet the demands of an increasingly connected and data-driven
-world.
+Multi-DC solutions play a critical role in ensuring **high availability**, **fault tolerance**, and **scalability**.
 
 | Key aspects                          | Description                                                                                                                                                                                                                                                                                                                                             |
 |--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
