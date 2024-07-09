@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-07-09T10:57:52.687Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 OPR/98.0.0.0" etag="DWRlHmdYDTM5e2NRGGGV" version="24.6.4" type="github">
+<mxfile host="app.diagrams.net" modified="2024-07-09T10:59:59.531Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 OPR/98.0.0.0" etag="Sr12FPTIW-f-wuCEtToG" version="24.6.4" type="github">
   <diagram name="Page-1" id="eg-bbg_5IieHK5USMi3r">
     <mxGraphModel dx="1344" dy="779" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
@@ -344,6 +344,9 @@
         </mxCell>
         <mxCell id="D7g8Gj18OXZDRu-mv0np-142" value="Vector Replicator" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="821" y="930" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="D7g8Gj18OXZDRu-mv0np-143" value="Vector Persistence Tier" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="640" y="1180" width="140" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
